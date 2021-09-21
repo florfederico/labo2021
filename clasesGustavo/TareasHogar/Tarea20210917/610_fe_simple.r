@@ -34,6 +34,8 @@ EnriquecerDataset <- function( dataset , arch_destino )
   dataset[ , mv_status07       := ifelse( is.na(Master_status), 
                                           ifelse( is.na(Visa_status), 10, Visa_status), 
                                           Master_status)  ]
+  dataset[ , mv_status08       := ccuenta_debitos_automaticos + ctarjeta_visa_debitos_automaticos + ctarjeta_master_debitos_automaticos 
+                                  + ctarjeta_visa_debitos_automaticos + ctarjeta_master_debitos_automaticos ]
 
 
   #combino MasterCard y Visa
