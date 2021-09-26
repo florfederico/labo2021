@@ -8,11 +8,8 @@ gc()
 
 require("data.table")
 
-
-
 #Establezco el Working Directory
-setwd( "~/buckets/b1/" )
-
+setwd("C:/Users/feder/OneDrive/Maestría Big Data/Laboratorio de Implementacion I/DM_EyF/" )  
 
 EnriquecerDataset <- function( dataset , arch_destino )
 {
@@ -34,8 +31,8 @@ EnriquecerDataset <- function( dataset , arch_destino )
   dataset[ , mv_status07       := ifelse( is.na(Master_status), 
                                           ifelse( is.na(Visa_status), 10, Visa_status), 
                                           Master_status)  ]
-  dataset[ , mv_status08       := ccuenta_debitos_automaticos + ctarjeta_visa_debitos_automaticos + ctarjeta_master_debitos_automaticos 
-                                  + ctarjeta_visa_debitos_automaticos + ctarjeta_master_debitos_automaticos ]
+  dataset[ , mv_status08       := max(ccuenta_debitos_automaticos, ctarjeta_visa_debitos_automaticos, ctarjeta_master_debitos_automaticos, 
+                                      ctarjeta_visa_debitos_automaticos, ctarjeta_master_debitos_automaticos) ]
 
 
   #combino MasterCard y Visa
