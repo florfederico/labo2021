@@ -9,7 +9,8 @@ gc()
 require("data.table")
 
 #Establezco el Working Directory
-setwd("C:/Users/feder/OneDrive/Maestría Big Data/Laboratorio de Implementacion I/DM_EyF/" )  
+#setwd("~/buckets/b1/" )  
+setwd("C:/Users/feder/OneDrive/Maestría Big Data/Laboratorio de Implementacion I/DM_EyF/" )
 
 EnriquecerDataset <- function( dataset , arch_destino )
 {
@@ -83,7 +84,7 @@ EnriquecerDataset <- function( dataset , arch_destino )
   if( infinitos_qty > 0 )
   {
     cat( "ATENCION, hay", infinitos_qty, "valores infinitos en tu dataset. Seran pasados a NA\n" )
-    dataset[mapply(is.infinite, dataset)] <- NA
+    dataset[mapply(is.infinite, dataset)] <- 0
   }
 
 
@@ -96,6 +97,15 @@ EnriquecerDataset <- function( dataset , arch_destino )
   {
     cat( "ATENCION, hay", nans_qty, "valores NaN 0/0 en tu dataset. Seran pasados arbitrariamente a 0\n" )
     cat( "Si no te gusta la decision, modifica a gusto el programa!\n\n")
+    
+    #dataset <- sapply(dataset, median, na.rm = TRUE)
+    
+    # data_mean <- dataset
+    # 
+    # for(i in 1:ncol(dataset)){
+    #   data_mean[,i][is.na(data_mean[,i])] <- mean(data_mean[,i], na.rm = TRUE)
+    # }
+    
     dataset[mapply(is.nan, dataset)] <- 0
   }
 
