@@ -63,8 +63,7 @@ hs <- makeParamSet(
          makeNumericParam("prob_corte",       lower=    0.040, upper=    0.055)
         )
 
-campos_malos  <- c( "mpasivos_margen", "mactivos_margen", "mrentabilidad_annual", "mrentabilidad", "mcomisiones", 
-                    "mautoservicio" )   #aqui se deben cargar todos los campos culpables del Data Drifting
+campos_malos  <- c( "mpasivos_margen", "mactivos_margen", "mrentabilidad_annual", "mrentabilidad", "mcomisiones" )   #aqui se deben cargar todos los campos culpables del Data Drifting
 
 
 ksemilla_azar  <- 102191  #Aqui poner la propia semilla
@@ -111,7 +110,7 @@ loguear  <- function( reg, arch=NA, folder="./work/", ext=".txt", verbose=TRUE )
 }
 #------------------------------------------------------------------------------
 
-PROB_CORTE  <- 0.025
+PROB_CORTE  <- 0.030
 
 fganancia_logistic_lightgbm   <- function(probs, datos) 
 {
