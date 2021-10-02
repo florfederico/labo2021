@@ -32,7 +32,7 @@ require("mlrMBO")
 #para poder usarlo en la PC y en la nube sin tener que cambiar la ruta
 #cambiar aqui las rutas en su maquina
 switch ( Sys.info()[['sysname']],
-         Windows = { directory.root  <-  "M:\\" },   #Windows
+         Windows = { directory.root  <-  "C:/Users/feder/OneDrive/Maestría Big Data/Laboratorio de Implementacion I/DM_EyF" },   #Windows
          Darwin  = { directory.root  <-  "~/dm/" },  #Apple MAC
          Linux   = { directory.root  <-  "~/buckets/b1/" } #Google Cloud
        )
@@ -45,7 +45,7 @@ kexperimento  <- NA   #NA si se corre la primera vez, un valor concreto si es pa
 
 kscript         <- "761_lgb_bin2_apiacere"
 
-karch_dataset    <- "./datasets/paquete_premium_corregido_ext.csv.gz"
+karch_dataset    <- "./datasets/datasets_paquete_premium_corregido_ext.csv.gz"
 kmes_apply       <- 202101  #El mes donde debo aplicar el modelo
 kmes_train_hasta <- 202011  #Obvimente, solo puedo entrenar hasta 202011
 
